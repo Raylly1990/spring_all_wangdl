@@ -54,5 +54,17 @@ public class DemoControl {
         return mv;
     }
 
+    @RequestMapping("showInfo3")
+    public ModelAndView showInfo3(String name) {
+        ModelAndView        mv       = new ModelAndView();
+        Map<String, Object> model    = mv.getModel();
+        User                userById = service.getUserById(1);
+        String              obj      = "欢迎您," + name + "-----" + userById.toString();
+        model.put("info", obj);
+        mv.setViewName("userinfo");
+        mv.addObject("info2", obj);
+        return mv;
+    }
+
 
 }
